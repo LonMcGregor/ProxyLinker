@@ -6,12 +6,12 @@ chrome.contextMenus.create({
     "type": "normal",
     "id": UNIQUE_MENU_ID_HWP,
     "title": SEARCH_NAME_HWP,
-    "contexts": ["page", "frame"]
+    "contexts": ["page", "frame", "link"]
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     if(info.menuItemId===UNIQUE_MENU_ID_HWP){
-        const url = info.frameUrl ? new URL(info.frameUrl) : new URL(info.pageUrl);
+        const url = info.frameUrl ? new URL(info.frameUrl) : info.linkUrl ? new URL(info.linkUrl) : new URL(info.pageUrl);
         const proxyDomain = url.host.replace(/\./g, "-");
         const proxyPath = url.pathname;
         const proxyParams = url.search;
