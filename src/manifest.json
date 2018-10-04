@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "HW Ezproxy Access",
+  "version": "1.0.0",
+
+  "description": "Access locked sites via HW library ezproxy",
+
+  "icons": {
+      "16": "16.png",
+      "48": "48.png",
+      "128": "128.png"
+  },
+
+  "permissions": ["contextMenus"],
+
+   "background": {
+    "scripts": ["bg.js"],
+    "persistent": false
+  }
+}
