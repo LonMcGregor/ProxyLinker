@@ -16,6 +16,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
         const proxyPath = url.pathname;
         const proxyParams = url.search;
         const proxyUrl = SEARCH_URL_TEMPLATE_HWP.replace("%domain", proxyDomain) + proxyPath + proxyParams;
-        chrome.tabs.create({"url": proxyUrl});
+        chrome.tabs.update(tab.id, {"url": proxyUrl});
     }
 });
